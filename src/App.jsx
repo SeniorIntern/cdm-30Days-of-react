@@ -1,10 +1,25 @@
-const App = () => {
-  // Edit this component
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [isVisible, setIsVisible] = useState(true);
+  const toggleParaView = () => setIsVisible(!isVisible);
+
   return (
-    <button data-testid="button" onClick={() => console.log("Clicked!")}>
-      Click me!
-    </button>
+    <>
+      <button id="toggle-btn" onClick={toggleParaView}>
+        Toggle View
+      </button>
+      {isVisible && (
+        <p id="my-paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quas
+          voluptas dicta quaerat iure fugit soluta libero officia dolorem quo
+          nam, voluptates obcaecati eos debitis? Sint repudiandae culpa eaque
+          optio?
+        </p>
+      )}
+    </>
   );
-};
+}
 
 export default App;
