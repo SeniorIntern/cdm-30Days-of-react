@@ -1,25 +1,18 @@
 import { useState } from "react";
-import "./App.css";
 
-function App() {
-  const [isVisible, setIsVisible] = useState(true);
-  const toggleParaView = () => setIsVisible(!isVisible);
+const App = () => {
+  const [count, setCount] = useState(0);
+  const handleHover = () => setCount(count + 1);
 
+  // Edit this component
   return (
-    <>
-      <button id="toggle-btn" onClick={toggleParaView}>
-        Toggle View
+    <div>
+      <button data-testid="button" onMouseEnter={handleHover}>
+        Hover Me
       </button>
-      {isVisible && (
-        <p id="my-paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quas
-          voluptas dicta quaerat iure fugit soluta libero officia dolorem quo
-          nam, voluptates obcaecati eos debitis? Sint repudiandae culpa eaque
-          optio?
-        </p>
-      )}
-    </>
+      <h1 data-testid="count">{count}</h1>
+    </div>
   );
-}
+};
 
 export default App;
